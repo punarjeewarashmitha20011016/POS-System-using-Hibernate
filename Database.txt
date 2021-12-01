@@ -1,0 +1,93 @@
+drop database possystem;
+create database if not exists PosSystem;
+use PosSystem;
+
+drop table if exists LoginDetails;
+create table if not exists LoginDetails(
+	id VARCHAR(6),
+	name VARCHAR(20)NOT NULL,
+	nic VARCHAR(20)NOT NULL,	
+	email VARCHAR(30)NOT NULL,
+	password TEXT,
+	CONSTRAINT PRIMARY KEY (id)
+);
+show tables;
+desc LoginDetails;
+
+drop table if exists Customer;
+create table if not exists Customer(
+	customerId VARCHAR(5),
+	customerName VARCHAR(30),
+	customerAddress VARCHAR(30),
+	customerNic VARCHAR(50)NOT NULL UNIQUE,
+	city VARCHAR(20),
+	CONSTRAINT PRIMARY KEY(customerId)
+);
+show tables;
+desc Customer;
+
+drop table if exists Item;
+create table if not exists Item(
+	itemCode VARCHAR(5),
+	itemDescription VARCHAR(50),
+	itemSize VARCHAR(20),
+	itemQty VARCHAR(20),
+	buyingPrice Double,
+	unitPrice Double,
+	CONSTRAINT PRIMARY KEY(itemCode)
+);
+show tables;
+desc Item;
+
+
+DROP TABLE IF EXISTS `Order`;
+CREATE TABLE IF NOT EXISTS `Order`(
+    orderId VARCHAR(5),
+    cId VARCHAR(5),
+    orderDate DATE,
+    time VARCHAR(15),
+    cost DOUBLE,
+    CONSTRAINT PRIMARY KEY (orderId),
+    CONSTRAINT FOREIGN KEY (cId) REFERENCES Customer(customerId) ON DELETE CASCADE ON UPDATE CASCADE
+    );
+SHOW TABLES ;
+DESCRIBE `Order`;
+
+DROP TABLE IF EXISTS `OrderDetails`;
+CREATE TABLE IF NOT EXISTS `OrderDetails`(
+    	itemCode VARCHAR(5),
+    	orderId VARCHAR(5),
+    	orderQty INT,
+	discount Double,
+    	price DOUBLE,
+    	CONSTRAINT PRIMARY KEY (itemCode, orderId),
+    	CONSTRAINT FOREIGN KEY (itemCode) REFERENCES Item(itemCode) ON DELETE CASCADE ON UPDATE CASCADE ,
+    	CONSTRAINT FOREIGN KEY (orderId) REFERENCES `Order`(orderId) ON DELETE CASCADE ON UPDATE CASCADE
+    );
+SHOW TABLES ;
+DESCRIBE `OrderDetails`;
+
+DROP TABLE IF EXISTS Income;
+CREATE TABLE IF NOT EXISTS Income(
+	dateAsPerIncome DATE,
+	totalIncome DOUBLE,
+	CONSTRAINT PRIMARY KEY(dateAsPerIncome)
+);
+desc Income;
+
+DROP TABLE IF EXISTS Returns;
+CREATE TABLE IF NOT EXISTS Returns(
+	returnId VARCHAR(5),
+	orderId VARCHAR(5),
+	customerId VARCHAR(5),
+	itemCode VARCHAR(5),
+	itemDescription TEXT,
+	returnQty INT,
+	returnReason TEXT,
+	total DOUBLE,
+	CONSTRAINT PRIMARY KEY(returnId),
+	CONSTRAINT FOREIGN KEY (orderId) REFERENCES `ORDER`(orderId) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer(customerId) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY (itemCode) REFERENCES Item(itemCode) ON DELETE CASCADE ON UPDATE CASCADE
+);
+desc Returns;

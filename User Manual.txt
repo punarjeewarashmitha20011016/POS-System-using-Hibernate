@@ -1,0 +1,21 @@
+1. Firstly Cashier or Admin can login to the system from the login interface by giving username and password.
+2. If admin logs to the system he/she directly goes to the admin interface which admin can see the system reports and manage items.
+3. Admin can press the System reports button and admin can see the a new interface where ot consists three buttons as "Customer Wise Income","Most/Least Movable Item","Daily/Monthly/Annually Income".
+4. By clicking the Customer Wise Income button admin can see the income from all the specific customers. And by clicking the Most/Least Movable Item button admin can see the details of the most and least selling items in the interface. And also by clicking the Daily/Monthly/Annually Income button admin can see the details of the annuall income of a specific year,monthly income that specific year and the daily income of that specific month.
+5. The last part of the admin can do is managing items. To manage items there is a button called Manage Items and after clicking that button an interface is pop out and it contains three buttons where admin can add items,update items and delete/reomve items.
+6. Then to logout from the admin interface admin should click the logout button and admin will directly goes to the login form again.
+7. Cashier should create an account by clicking the underlined text in the login form. And chashier will directly goes into the create an account interface. In that interface cashier should enter his/her details by giving details to the field given in the create an account interface.
+8. After creating an account cashier can enter his username and password in the relevant textfields to log into the cashier interface.
+9. After login success cashier will see the cashier interface. Then there are 5 buttons which are shown as Add new customer,view customer details,view item details,make an order,view order details.
+10. when clicking the add new customer, cashoer can add a customer when it's needed and cashier can thereafter can update and delete the customer customer when it's needed.
+11. The added customer details can be seen by clicking the view customer details button.
+12. And aslso cashier can see the item details in the stock by clicking the view item details button.
+13. When a specific customer comes to the cashier to make a purchase customer can view the customer details by clicking the combo box which consists customerIds when the related customer is registered in the system.
+14. Then cashier can select the item code of the item which customer is willing to buy and after clicking the item code relvant item details are displayed to the cashier.
+15. After that cashier can enter the amount of quantity which customer is willing to but an if a discount is available cashier can add a discount to the specific item and cashier can add those select items to the cart.
+16. After adding to the cart cashier can see the item details,amount of quantity,the discount price and the total of the relevant item in a table below add to cart button. 
+17. Then the total cost of the order is displayed at the bottom of the iterface.
+18. After that customer can make the payment to the cashier as a full payment and cashier can return the balance of the payment by clicking the make payment button and thereafter cashier can print the bill.
+19. After the payment is done cashier can place the order.
+20. Cashier can make a return when a customer returns a specific item or an order.
+
